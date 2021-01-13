@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "31b20841-3916-416c-9586-581f283f7ebf",
+		"name": "Trello share a board",
+		"description": "This is a simple Postman collection that will allow you to share a Trello board without having a team.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Step 1 - Search board",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/search/?key={{key}}&token={{token}}&query=YOUR BOARD NAME",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "query",
+							"value": "YOUR BOARD NAME"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Step 2 - Invite to board",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/:boardId/members?key={{key}}&token={{token}}&email=SOME EMAIL",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						":boardId",
+						"members"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "email",
+							"value": "SOME EMAIL"
+						}
+					],
+					"variable": [
+						{
+							"key": "boardId",
+							"value": "YOUR BOARD ID"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "key",
+			"value": "YOUR TRELLO KEY"
+		},
+		{
+			"key": "token",
+			"value": "YOUR TRELLO TOKEN"
+		}
+	]
+}
